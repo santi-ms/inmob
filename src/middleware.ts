@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
-const publicRoutes = ["/", "/login", "/register", "/mapa", "/propiedades", "/precios", "/planes"];
+const publicRoutes = ["/", "/login", "/register", "/mapa", "/propiedades", "/precios", "/planes", "/api/properties", "/api/zones"];
 const adminRoutes = ["/admin"];
 const ownerRoutes = ["/dashboard/propiedades/nueva"];
 
