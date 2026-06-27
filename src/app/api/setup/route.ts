@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { neon } from "@neondatabase/serverless";
 
+// One-time setup route — delete after running
 const SETUP_SECRET = process.env.SETUP_SECRET || "inmob-setup-2024";
 
 export async function POST(request: NextRequest) {
