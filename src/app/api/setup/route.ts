@@ -4,9 +4,7 @@ import { neon } from "@neondatabase/serverless";
 // One-time setup route — delete after running
 const SETUP_SECRET = process.env.SETUP_SECRET || "inmob-setup-2024";
 
-export async function POST(request: NextRequest) {
-  const { secret } = await request.json();
-
+async function runSetup(secret: string | null) {
   if (secret !== SETUP_SECRET) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -267,4 +265,14 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+export async function GET(request: NextRequest) {
+  const secret = request.nextUrl.searchParams.get("secret");
+  return runSetup(secret);
+}
+
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  return runSetup(body.secret);
 }
