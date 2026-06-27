@@ -15,14 +15,14 @@ async function runSetup(secret: string | null) {
   try {
     // Create enums
     const enums = [
-      `CREATE TYPE IF NOT EXISTS "public"."payment_status" AS ENUM('pending', 'approved', 'rejected', 'refunded')`,
-      `CREATE TYPE IF NOT EXISTS "public"."price_rating" AS ENUM('below_market', 'at_market', 'above_market')`,
-      `CREATE TYPE IF NOT EXISTS "public"."property_operation" AS ENUM('sale', 'rent')`,
-      `CREATE TYPE IF NOT EXISTS "public"."property_source" AS ENUM('manual', 'zonaprop', 'argenprop', 'mercadolibre')`,
-      `CREATE TYPE IF NOT EXISTS "public"."property_status" AS ENUM('active', 'inactive', 'pending', 'sold', 'rented')`,
-      `CREATE TYPE IF NOT EXISTS "public"."property_type" AS ENUM('house', 'apartment', 'land', 'commercial', 'office', 'warehouse')`,
-      `CREATE TYPE IF NOT EXISTS "public"."subscription_status" AS ENUM('active', 'cancelled', 'expired', 'past_due')`,
-      `CREATE TYPE IF NOT EXISTS "public"."user_role" AS ENUM('user', 'owner', 'admin')`,
+      `CREATE TYPE "public"."payment_status" AS ENUM('pending', 'approved', 'rejected', 'refunded')`,
+      `CREATE TYPE "public"."price_rating" AS ENUM('below_market', 'at_market', 'above_market')`,
+      `CREATE TYPE "public"."property_operation" AS ENUM('sale', 'rent')`,
+      `CREATE TYPE "public"."property_source" AS ENUM('manual', 'zonaprop', 'argenprop', 'mercadolibre')`,
+      `CREATE TYPE "public"."property_status" AS ENUM('active', 'inactive', 'pending', 'sold', 'rented')`,
+      `CREATE TYPE "public"."property_type" AS ENUM('house', 'apartment', 'land', 'commercial', 'office', 'warehouse')`,
+      `CREATE TYPE "public"."subscription_status" AS ENUM('active', 'cancelled', 'expired', 'past_due')`,
+      `CREATE TYPE "public"."user_role" AS ENUM('user', 'owner', 'admin')`,
     ];
 
     for (const stmt of enums) {
